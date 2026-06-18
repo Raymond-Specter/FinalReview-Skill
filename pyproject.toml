@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finalreview-skill"
+version = "0.1.0"
+description = "Local-first final exam review material generator with parsers, rule extraction, RAG, CLI, and Streamlit UI."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "FinalReview-Skill Contributors" }]
+keywords = ["education", "exam-review", "rag", "anki", "streamlit"]
+dependencies = [
+  "typer>=0.12",
+  "rich>=13.0",
+  "pydantic>=2.0",
+  "PyMuPDF>=1.23",
+  "python-pptx>=0.6.23",
+  "python-docx>=1.1",
+  "pandas>=2.0",
+  "openpyxl>=3.1",
+  "scikit-learn>=1.3",
+  "numpy>=1.24",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.32"]
+ocr = ["pytesseract>=0.3", "Pillow>=10.0"]
+openai = ["openai>=1.0"]
+ollama = ["requests>=2.31"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+finalreview = "finalreview.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+finalreview = ["prompts/*.md"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
