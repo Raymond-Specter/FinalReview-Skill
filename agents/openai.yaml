@@ -1,0 +1,4 @@
+interface:
+  display_name: "Final Review Skill"
+  short_description: "Generate exam-focused review materials from course files."
+  default_prompt: "Use finalreview-skill to turn my uploaded course materials into exam-focused notes, formulas, practice questions, mock exams, Anki cards, a study plan, and source-cited QA."
