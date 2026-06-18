@@ -9,6 +9,15 @@ Extract an exam point when a chunk contains one or more of:
 - Knowledge-unit signals: `定义`, `性质`, `定理`, `公式`, `步骤`, `算法`, `设计方法`, `证明`, `推导`
 - Frequency signals: repeated terms across slides, homework, quizzes, and past papers
 
+Source priority for exam-point ranking:
+
+1. past papers / real exams
+2. teacher slides
+3. homework / quiz / reading assignments
+4. review scope / syllabus
+5. quick-course materials
+6. AI supplemental content
+
 For each exam point, capture:
 
 - title
@@ -53,6 +62,8 @@ Extract exercises from:
 - numbering: `1.`, `1）`, `（1）`, `Q1`, `Question 1`, `Exercise 1`, `Exercice 1`
 - past paper or homework sections
 
+Generate new questions only after extracting source questions and patterns. Generated questions must be labeled `AI生成题` or `AI补充`.
+
 For each exercise, capture:
 
 - question stem
@@ -92,6 +103,12 @@ High-frequency question types should include:
 - typical solution path
 - common mistakes
 - recommended practice order
+
+Question-count heuristic:
+
+- each knowledge point usually gets `1~6` questions
+- high-frequency, multi-form, teacher-emphasized points get more
+- isolated low-signal points get fewer or no generated questions
 
 ## Completeness Checks
 
